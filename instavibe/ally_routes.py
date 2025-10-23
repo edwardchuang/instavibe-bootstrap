@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session, Response, stream_with_context
 import json 
 import traceback 
-# REPLACE ME TO ADD IMPORT
+from introvertally import call_agent_for_plan, post_plan_event
 
 
 # It's good practice to use a Blueprint for organizing routes

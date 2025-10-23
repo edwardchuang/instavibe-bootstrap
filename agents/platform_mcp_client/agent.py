@@ -25,7 +25,10 @@ exit_stack: AsyncExitStack | None = None
 
 async def get_tools_async():
   print("Attempting to connect to MCP Filesystem server...")
-  #REPLACE ME - FETCH TOOLS
+  """Gets tools from the File System MCP Server."""
+  tools =  MCPToolset(
+      connection_params=SseServerParams(url=MCP_SERVER_URL, headers={})
+  )
   log.info("MCP Toolset created successfully.")
 
   return tools
@@ -65,7 +68,7 @@ async def get_agent_async():
         - Use only the provided tools. Do not try to perform actions outside of their scope.
 
       """,
-      #REPLACE ME - SET TOOLs
+      tools=[tools],
   )
   print("LlmAgent created.")
 
